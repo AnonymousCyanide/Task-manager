@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="content">
+<center>
+<h1>Task</h1>
+<table class="table table-striped table-hover">
+<tr>
+
+<th>Task</th>
+<th>Added</th>
+<th>Action</th>
+</tr>
+
+<tr>
+
+<td>{{task.content}}</td>
+<td>{{task.date_created.date()}}</td>
+<td>
+<a class="btn btn-danger" href='/delete/{{task.id}}'>Delete</a>
+
+</td>
+</tr>
+
+<table>
+
+
+
+<form action="/update/{{task.id}}" method="POST">
+<input class="form-control" type = "text" name = "content" id = "content" value= '{{task.content}}'>
+<input class="btn btn-dark" type = "submit" value ="update task">
+</form>
+</center>
+</div>
+{%endblock%}

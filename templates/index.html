@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%block head%}
+
+{%endblock%}
+{%block body%}
+<div class="class="container"">
+<center>
+<h1 class= "display-2">My Tasks</h1>
+<table class="table table-striped table-hover">
+<tr>
+
+<th>Task</th>
+<th>Added</th>
+<th>Action</th>
+</tr>
+{%for task in tasks%}
+<tr>
+
+<td>{{task.content}}</td>
+<td>{{task.date_created.date()}}</td>
+<td>
+<a class="btn btn-danger" href='/delete/{{task.id}}'>Delete</a>
+<a class="btn btn-success" href='/update/{{task.id}}'>Update</a>
+</td>
+</tr>
+{%endfor%}
+<table>
+<form action="/" method="POST">
+<input class="form-control" type = "text" name = "content" id = "content">
+
+<input class="btn btn-dark" type = "submit" value ="ADD TASK">
+
+</form>
+</center>
+</div>
+{%endblock%}
